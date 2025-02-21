@@ -1,14 +1,12 @@
 #!/bin/bash
- 
-sudo yum install httpd -y
-sudo systemctl start httpd
-sudo systemctl enable httpd
-wget https://wordpress.org/latest.tar.gz
-tar zxf latest.tar.gz
-sudo dnf install wget php-mysqlnd httpd php-fpm php-mysqli mariadb105-server php-json php php-devel -y
-sudo mv wordpress/* /var/www/html
-sudo systemctl restart httpd
-sudo rm -rf /var/www/html/index.html
 
-sudo systemctl start mariadb
-sudo systemctl enable mariadb
+sudo amazon-linux-extras install mariadb10.5 -y
+sudo amazon-linux-extras install php8.2 -y
+sudo yum install -y httpd
+sudo wget https://wordpress.org/latest.tar.gz
+sudo tar -xzf latest.tar.gz
+sudo mv wordpress/* /var/www/html
+sudo rm -rf wordpress/
+sudo systemctl start mariadb httpd
+sudo systemctl enable mariadb httpd
+sudo systemctl restart httpd
