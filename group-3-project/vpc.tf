@@ -1,42 +1,42 @@
 resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block           = "10.0.0.0/16"
   enable_dns_hostnames = true
-  enable_dns_support = true
+  enable_dns_support   = true
 
   tags = {
-  Name = "group-3"
+    Name = "group-3"
   }
 }
 
 resource "aws_subnet" "main1" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.1.0/24"
-  availability_zone = "us-east-2a"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "us-east-2a"
   map_public_ip_on_launch = true
 
-    tags = {
+  tags = {
     Name = "Main"
   }
 }
 
 resource "aws_subnet" "main2" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.2.0/24"
-  availability_zone = "us-east-2b"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "10.0.2.0/24"
+  availability_zone       = "us-east-2b"
   map_public_ip_on_launch = true
 
-    tags = {
+  tags = {
     Name = "Main2"
   }
 }
 
 resource "aws_subnet" "main3" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.3.0/24"
-  availability_zone = "us-east-2c"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "10.0.3.0/24"
+  availability_zone       = "us-east-2c"
   map_public_ip_on_launch = true
 
-    tags = {
+  tags = {
     Name = "Main3"
   }
 }

@@ -1,5 +1,5 @@
 variable "db_name" {
-  default = "group-3"
+  default = "group3"
 }
 
 variable "db_user" {
@@ -7,5 +7,5 @@ variable "db_user" {
 }
 
 variable "db_pass" {
-  default = "1234!"
+  default = "groupnum3"
 }

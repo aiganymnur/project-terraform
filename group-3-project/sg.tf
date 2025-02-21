@@ -2,7 +2,7 @@
 resource "aws_security_group" "allow_tls" {
   name        = "allow_tls"
   description = "Allow TLS inbound traffic"
-  vpc_id     = aws_vpc.main.id
+  vpc_id      = aws_vpc.main.id
 
   ingress {
     description = "TLS from VPC"
@@ -20,15 +20,15 @@ resource "aws_security_group" "allow_tls" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-    ingress {
+  ingress {
     description = "TLS from VPC"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-    # Allow access to RDS 
-    ingress {
+  # Allow access to RDS 
+  ingress {
     description = "TLS from VPC"
     from_port   = 3306
     to_port     = 3306
